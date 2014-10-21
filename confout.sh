@@ -8,33 +8,22 @@
 #      Chamada: confout.sh <arquivo de out>
 #      Exemplo: confout.sh proc.20090721.out
 #  Comentarios: as palavras consideradas como erro sao as observadas nos processos
-#  Observacoes: Observacoes relevantes para o processamento
-# Dependencias: Relacoes de dependencia para execucao, como arquivos
-#                 auxiliares esperados, estrutura de diretorios, etc.
-#               NECESSARIAMENTE entre o servidor de trigramas e esta maquina
-#                 deve haver uma CHAVE PUBLICA DE AUTENTICACAO, de forma que
-#                 seja dispensada a interacao com operador para os processos
-#                 de transferencia de arquivos.
 # ------------------------------------------------------------------------- #
 #   DATA    Responsaveis      Comentarios
 # 20090721  FLBrito           Edicao original
-# 20100218  FBatalha/FJLopes  Inclusao de 'DOES NOT EXIST'
-# 20100622  FJLopes           Inclusao de 'toomany arguments' e outros
 #---------------------------------------------------------------------------#
 
-TPR="start"
-. log
 
 # Verifica a passagem do parametro
 if [ "$#" -ne 1 ]
 then
-   TPR="fatal"
-   MSG="use: confout.sh <file_out>"
-   . log
+   echo
+   echo "ERRO"
+   echo "use: confout.sh <file_out>"
+   exit 0
 fi
 
 ARQUIVO=$1
-
 
 #------------------------------------------------------------------------#
 # Busca de palavras especificas
